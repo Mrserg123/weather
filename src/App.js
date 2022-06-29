@@ -8,9 +8,6 @@ function App() {
   return (
     <>
       <HashRouter>
-        {/* <BrowserRouter>
-        <Home />
-      </BrowserRouter> */}
         {/* <BrowserRouter> */}
         <Routes>
           <Route index path="/" element={<Home />} />

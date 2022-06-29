@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const Dotenv = require("dotenv-webpack");
 let mode = "development";
 if (process.env.NODE_ENV === "production") {
   mode = "production";
@@ -14,6 +14,7 @@ const plugins = [
     manifest: "./public/manifest.json",
     inject: "body",
   }),
+  new Dotenv(),
 ];
 
 module.exports = {
@@ -21,12 +22,6 @@ module.exports = {
   plugins,
   entry: "./src/index.tsx",
   devtool: "source-map",
-  // entry: {
-  //   "bundle-home": "../",
-  //   "bundle-category": "./entry-category.js",
-  //   "bundle-product": "./entry-product.js",
-  //   "bundle-checkout": "./entry-checkout.js",
-  // },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",

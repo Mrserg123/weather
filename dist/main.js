@@ -24091,22 +24091,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function App() {
-  return (
-    /*#__PURE__*/
-    // <div className="App">
-    //   <div>fdsfsd</div>
-    //   <button onClick={() => dispatch(increment())}>lol</button>
-    //   <button onClick={() => dispatch(incrementByAmount(30))}>icrement</button>
-    // </div>
-    react__WEBPACK_IMPORTED_MODULE_1__.createElement(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
-      index: true,
-      path: "/",
-      element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_Home_Home__WEBPACK_IMPORTED_MODULE_2__["default"], null)
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
-      path: "/weather/:city",
-      element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_City_City__WEBPACK_IMPORTED_MODULE_3__["default"], null)
-    }))))
-  );
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+    index: true,
+    path: "/",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_Home_Home__WEBPACK_IMPORTED_MODULE_2__["default"], null)
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+    path: "/weather/:city",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_City_City__WEBPACK_IMPORTED_MODULE_3__["default"], null)
+  }))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -67552,18 +67544,45 @@ __webpack_require__.r(__webpack_exports__);
 
 var City = function () {
     var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
-    console.log(location);
+    var cityState = location;
+    var city = cityState.state.city;
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Home_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Container__WEBPACK_IMPORTED_MODULE_4__["default"], { sx: { py: 2, display: "flex", justifyContent: "center" }, maxWidth: "md" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_5__["default"], null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_6__["default"], { variant: "h6", color: "inherit", sx: { textAlign: "center" } }, "Weather"),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_6__["default"], { variant: "h3", color: "inherit", sx: { textAlign: "center" } }, city.name),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "border" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "\u042D\u043B\u0435\u043C\u0435\u043D\u0442 \u0441\u043F\u0438\u0441\u043A\u0430"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "\u042D\u043B\u0435\u043C\u0435\u043D\u0442 \u0441\u043F\u0438\u0441\u043A\u0430"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "\u042D\u043B\u0435\u043C\u0435\u043D\u0442 \u0441\u043F\u0438\u0441\u043A\u0430"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "\u042D\u043B\u0435\u043C\u0435\u043D\u0442 \u0441\u043F\u0438\u0441\u043A\u0430"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "\u042D\u043B\u0435\u043C\u0435\u043D\u0442 \u0441\u043F\u0438\u0441\u043A\u0430"))))));
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                        "Temperature: ",
+                        city.main.temp,
+                        "\u2103"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                        "Feels like: ",
+                        city.main.feels_like,
+                        "\u2103"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                        "Humidity: ",
+                        city.main.humidity,
+                        "% "),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                        "Visibility: ",
+                        city.visibility,
+                        "m"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                        "Clouds: ",
+                        city.clouds.all,
+                        "%"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                        "Weather: ",
+                        city.weather[0].main),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { style: { display: "flex", alignItems: "center" } },
+                        "Description: ",
+                        city.weather[0].description,
+                        " ",
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { width: 45, src: "http://openweathermap.org/img/w/".concat(city.weather[0].icon, ".png"), alt: city.weather[0].main })),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                        "Country: ",
+                        city.sys.country))))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (City);
 
@@ -67580,17 +67599,20 @@ var City = function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_material_AppBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/material/AppBar */ "./node_modules/@mui/material/AppBar/AppBar.js");
-/* harmony import */ var _mui_material_Toolbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/Toolbar */ "./node_modules/@mui/material/Toolbar/Toolbar.js");
-/* harmony import */ var _mui_material_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/Typography */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material_AppBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/AppBar */ "./node_modules/@mui/material/AppBar/AppBar.js");
+/* harmony import */ var _mui_material_Toolbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/Toolbar */ "./node_modules/@mui/material/Toolbar/Toolbar.js");
+/* harmony import */ var _mui_material_Typography__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material/Typography */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+
 
 
 
 
 function Header() {
-    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_AppBar__WEBPACK_IMPORTED_MODULE_1__["default"], { position: "relative" },
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Toolbar__WEBPACK_IMPORTED_MODULE_2__["default"], null,
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], { variant: "h6", color: "inherit", noWrap: true }, "Weather"))));
+    var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_AppBar__WEBPACK_IMPORTED_MODULE_2__["default"], { position: "relative" },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Toolbar__WEBPACK_IMPORTED_MODULE_3__["default"], { onClick: function () { return navigate("/"); } },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_4__["default"], { sx: { cursor: "pointer" }, variant: "h6", color: "inherit", noWrap: true }, "Weather"))));
 }
 /* harmony default export */ __webpack_exports__["default"] = (Header);
 
@@ -67667,7 +67689,6 @@ var Home = function () {
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Header__WEBPACK_IMPORTED_MODULE_4__["default"], null),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", null,
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_9__["default"], { sx: {
-                    // backgroundImage: "url(/images/land-weather-forecast.jpg)",
                     bgcolor: "background.paper",
                     pb: 6,
                 } }),
@@ -67760,7 +67781,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _slices_weatherSlice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../slices/weatherSlice */ "./src/redux/slices/weatherSlice.ts");
 
-// import moneyReducer from './index';
 
 var reducers = (0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({
     weather: _slices_weatherSlice__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -67843,7 +67863,7 @@ var getAllCity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThu
     var requests;
     return __generator(this, function (_a) {
         requests = nameCity.map(function (name) {
-            return fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(name, "&appid=97a4f3641ca3cd6a0a973a0507258b25&units=metric"));
+            return fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(name, "&appid=").concat("97a4f3641ca3cd6a0a973a0507258b25", "&units=metric"));
         });
         return [2 /*return*/, Promise.all(requests).then(function (responses) {
                 return Promise.all(responses.map(function (item) { return item.json(); }));
@@ -67854,7 +67874,7 @@ var getOneCity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThu
     var requests;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(nameCity, "&appid=97a4f3641ca3cd6a0a973a0507258b25&units=metric"))
+            case 0: return [4 /*yield*/, fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(nameCity, "&appid=").concat("97a4f3641ca3cd6a0a973a0507258b25", "&units=metric"))
                     .then(function (responses) { return responses.json(); })
                     .then(function (result) { return result; })];
             case 1:
@@ -67867,7 +67887,7 @@ var addCity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThunk)
     var requests;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(nameCity, "&appid=97a4f3641ca3cd6a0a973a0507258b25&units=metric"))
+            case 0: return [4 /*yield*/, fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(nameCity, "&appid=").concat("97a4f3641ca3cd6a0a973a0507258b25", "&units=metric"))
                     .then(function (responses) { return responses.json(); })
                     .then(function (result) { return result; })];
             case 1:
@@ -69976,12 +69996,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var root = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.getElementById("root"));
-root.render(
-// <React.StrictMode>
-react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_6__.Provider, { store: _redux_store__WEBPACK_IMPORTED_MODULE_5__.store },
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_3__["default"], null))
-// </React.StrictMode>
-);
+root.render(react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, null,
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_6__.Provider, { store: _redux_store__WEBPACK_IMPORTED_MODULE_5__.store },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_3__["default"], null))));
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "index.tsx",
-  "homepage":"https://mrserg123.github.io/",
+  "homepage": "https://mrserg123.github.io/",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -53,6 +53,7 @@
     "@babel/core": "7.17.0",
     "@babel/preset-react": "7.16.0",
     "babel-loader": "8.2.0",
+    "dotenv-webpack": "^7.1.1",
     "gh-pages": "^4.0.0",
     "html-loader": "^3.1.2",
     "webpack": "5.70.0",

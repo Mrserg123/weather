@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
 export interface weatherState {
   status: string;
   allCity: Array<any>;
@@ -27,7 +26,7 @@ export const getAllCity = createAsyncThunk(
   async (nameCity: Array<string>) => {
     let requests = nameCity.map((name) =>
       fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=97a4f3641ca3cd6a0a973a0507258b25&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
       )
     );
     return Promise.all(requests).then((responses) =>
@@ -39,7 +38,7 @@ export const getOneCity = createAsyncThunk(
   "weatherSlice/getOneCity",
   async (nameCity: string) => {
     let requests = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${nameCity}&appid=97a4f3641ca3cd6a0a973a0507258b25&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${nameCity}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
     )
       .then((responses) => responses.json())
       .then((result) => result);
@@ -50,7 +49,7 @@ export const addCity = createAsyncThunk(
   "weatherSlice/getAddCity",
   async (nameCity: string) => {
     let requests = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${nameCity}&appid=97a4f3641ca3cd6a0a973a0507258b25&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${nameCity}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
     )
       .then((responses) => responses.json())
       .then((result) => result);
