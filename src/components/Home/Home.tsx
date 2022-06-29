@@ -28,8 +28,6 @@ const Home: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [city, setCity] = React.useState("");
-  console.log(stateWeather, "state");
-
   React.useEffect(() => {
     if (localStorage.cityName === undefined) {
       localStorage.cityName = JSON.stringify(["Kyiv"]);
@@ -53,12 +51,19 @@ const Home: React.FC = () => {
           }}
         ></Box>
         <Container sx={{ py: 2 }} maxWidth="md">
-          <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mb: 2,
+            }}
+          >
             <TextField
               id="outlined-basic"
               label="City"
               variant="outlined"
               value={city}
+              sx={{ width: 170 }}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setCity(e.target.value)
               }
@@ -86,14 +91,19 @@ const Home: React.FC = () => {
             container
             sx={{
               display: "flex",
-              justifyContent:
-                stateWeather.allCity.length <= 2 ? "center" : "space-between",
+              justifyContent: "center",
             }}
           >
             {stateWeather.allCity.map((city) => (
               <Card
                 key={city.id}
-                sx={{ maxWidth: 250, mb: 2, mr: 2, cursor: "pointer" }}
+                sx={{
+                  maxWidth: 250,
+                  mb: 2,
+                  ml: stateWeather.allCity.length === 1 ? 0 : 2,
+                  mr: stateWeather.allCity.length === 1 ? 0 : 2,
+                  cursor: "pointer",
+                }}
               >
                 <div
                   onClick={() =>
