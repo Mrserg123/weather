@@ -68382,7 +68382,7 @@ if (false) {} else {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
-module.exports = __webpack_require__.p + "e6a48989c5d65d6b1688.jpg";
+module.exports = __webpack_require__.p + "img/weather-images.jpg";
 
 /***/ }),
 
@@ -69703,7 +69703,7 @@ function combine (array, callback) {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = function(chunkId) {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".main.js";
+/******/ 			return "js/" + chunkId + ".main.js";
 /******/ 		};
 /******/ 	}();
 /******/ 	
@@ -69807,7 +69807,7 @@ function combine (array, callback) {
 /******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
 /******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
 /******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 		__webpack_require__.p = scriptUrl + "../";
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */

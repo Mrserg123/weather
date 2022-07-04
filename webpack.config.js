@@ -24,8 +24,9 @@ module.exports = {
   devtool: "source-map",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
-    // publicPath: "/",
+    filename: "js/main.js",
+    clean: true,
+    assetModuleFilename: "img/[name][ext][query]",
   },
   resolve: {
     extensions: [".js", ".ts", ".jsx", ".tsx", ".css"],
@@ -41,12 +42,8 @@ module.exports = {
     rules: [
       { test: /\.(html)$/, use: ["html-loader"] },
       {
-        test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
+        test: /\.(png|jpe?g|gif|svg|webp|jpg|ico)$/i,
         type: mode === "production" ? "src/assets" : "asset/resource",
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)$/i,
-        type: "asset/resource",
       },
       {
         test: /\.(js|jsx)$/,
@@ -54,17 +51,7 @@ module.exports = {
         loader: "babel-loader",
         options: { presets: ["@babel/env", "@babel/preset-react"] },
       },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: "svg-url-loader",
-            options: {
-              limit: 10000,
-            },
-          },
-        ],
-      },
+
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
