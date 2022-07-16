@@ -1,6 +1,9 @@
 const path = require("path");
+
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const Dotenv = require("dotenv-webpack");
+require("dotenv").config();
+
 let mode = "development";
 if (process.env.NODE_ENV === "production") {
   mode = "production";
@@ -14,7 +17,7 @@ const plugins = [
     manifest: "./public/manifest.json",
     inject: "body",
   }),
-  new Dotenv(),
+  new webpack.EnvironmentPlugin(["REACT_APP_WEATHER_API"]),
 ];
 
 module.exports = {
