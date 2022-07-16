@@ -1,9 +1,8 @@
 {
   "name": "weather-react",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
-  "main": "index.tsx",
-  "homepage": "https://mrserg123.github.io/",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",

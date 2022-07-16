@@ -7,12 +7,12 @@ function App() {
   return (
     <>
       {/* <BrowserRouter> */}
-      <HashRouter>
-        <Routes>
-          <Route index path="/" element={<Home />} />
-          <Route path="/weather/:city" element={<City />} />
-        </Routes>
-      </HashRouter>
+      {/* <HashRouter> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="weather/:city" element={<City />} />
+      </Routes>
+      {/* </HashRouter> */}
       {/* </BrowserRouter> */}
     </>
   );

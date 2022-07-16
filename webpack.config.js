@@ -24,6 +24,7 @@ module.exports = {
   devtool: "source-map",
   output: {
     path: path.resolve(__dirname, "dist"),
+    publicPath: "",
     filename: "js/main.js",
     clean: true,
     assetModuleFilename: "img/[name][ext][query]",
